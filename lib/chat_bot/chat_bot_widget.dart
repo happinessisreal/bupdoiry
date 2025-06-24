@@ -57,7 +57,7 @@ class _ChatBotWidgetState extends State<ChatBotWidget> {
                 child: Container(
                   width: double.infinity,
                   height: 200.0,
-                  color: Color(0x00000000),
+                  color: Color(0xFFB9C50E),
                   child: ExpandableNotifier(
                     controller: _model.expandableExpandableController,
                     child: ExpandablePanel(

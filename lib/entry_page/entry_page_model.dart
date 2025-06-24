@@ -18,9 +18,6 @@ class EntryPageModel extends FlutterFlowModel<EntryPageWidget> {
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
-  bool isDataUploading_uploadDataOm7 = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadDataOm7 = [];
-  List<String> uploadedFileUrls_uploadDataOm7 = [];
 
   @override
   void initState(BuildContext context) {}

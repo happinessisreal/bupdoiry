@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/upload_data.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -109,8 +108,8 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.safePop();
             },
           ),
           title: Text(
@@ -969,70 +968,6 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                   TextCapitalization.sentences),
                             );
                           }),
-                      ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderRadius: 25.0,
-                          buttonSize: 50.0,
-                          fillColor: Color(0xFF6B8560),
-                          icon: Icon(
-                            Icons.attach_file_outlined,
-                            color: Color(0xFF162118),
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            final selectedFiles = await selectFiles(
-                              storageFolderPath: 'users/[auth_id]/ ',
-                              multiFile: true,
-                            );
-                            if (selectedFiles != null) {
-                              safeSetState(() =>
-                                  _model.isDataUploading_uploadDataOm7 = true);
-                              var selectedUploadedFiles = <FFUploadedFile>[];
-
-                              var downloadUrls = <String>[];
-                              try {
-                                selectedUploadedFiles = selectedFiles
-                                    .map((m) => FFUploadedFile(
-                                          name: m.storagePath.split('/').last,
-                                          bytes: m.bytes,
-                                        ))
-                                    .toList();
-
-                                downloadUrls = await uploadSupabaseStorageFiles(
-                                  bucketName: 'diaryattachments',
-                                  selectedFiles: selectedFiles,
-                                );
-                              } finally {
-                                _model.isDataUploading_uploadDataOm7 = false;
-                              }
-                              if (selectedUploadedFiles.length ==
-                                      selectedFiles.length &&
-                                  downloadUrls.length == selectedFiles.length) {
-                                safeSetState(() {
-                                  _model.uploadedLocalFiles_uploadDataOm7 =
-                                      selectedUploadedFiles;
-                                  _model.uploadedFileUrls_uploadDataOm7 =
-                                      downloadUrls;
-                                });
-                              } else {
-                                safeSetState(() {});
-                                return;
-                              }
-                            }
-                          },
-                        ),
                       ],
                     ),
                   ),

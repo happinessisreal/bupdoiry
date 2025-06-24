@@ -144,6 +144,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: ChatBotWidget.routeName,
               path: ChatBotWidget.routePath,
               builder: (context, params) => ChatBotWidget(),
+            ),
+            FFRoute(
+              name: ChatAiScreenWidget.routeName,
+              path: ChatAiScreenWidget.routePath,
+              builder: (context, params) => ChatAiScreenWidget(),
+            ),
+            FFRoute(
+              name: ListofoptionsWidget.routeName,
+              path: ListofoptionsWidget.routePath,
+              builder: (context, params) => ListofoptionsWidget(),
+            ),
+            FFRoute(
+              name: ChattingPageWidget.routeName,
+              path: ChattingPageWidget.routePath,
+              builder: (context, params) => ChattingPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

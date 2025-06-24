@@ -191,8 +191,8 @@ class _P1ToPWidgetState extends State<P1ToPWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    context.pushNamed(ListofoptionsWidget.routeName);
                   },
                   text: 'Hell yea..૮(˶╥︿╥)ა',
                   options: FFButtonOptions(
