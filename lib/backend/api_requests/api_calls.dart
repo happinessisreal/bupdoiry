@@ -67,6 +67,90 @@ class SendFullPromptCall {
 
 /// End OpenAI ChatGPT Group Code
 
+class GetGeminiEmbeddingCall {
+  static Future<ApiCallResponse> call({
+    String? userInput = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "model": "models/text-embedding-004",
+  "content": {
+    "parts": [
+      {
+        "text": "${escapeStringForJson(userInput)}"
+      }
+    ]
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getGeminiEmbedding',
+      apiUrl:
+          'https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=AIzaSyCSdrrq7LL7cluJTZL2N4wYJxXADSle_dc',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic embedding(dynamic response) => getJsonField(
+        response,
+        r'''$.embedding''',
+      );
+  static List<double>? embeddingValues(dynamic response) => (getJsonField(
+        response,
+        r'''$.embedding.values''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+}
+
+class MatchDiaryEntriesCall {
+  static Future<ApiCallResponse> call({
+    List<double>? queryEmbeddingList,
+  }) async {
+    final queryEmbedding = _serializeList(queryEmbeddingList);
+
+    final ffApiRequestBody = '''
+{
+  "query_embedding": [${queryEmbedding}],
+  "match_threshold": 0.7,
+  "match_count": 3
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'matchDiaryEntries',
+      apiUrl:
+          'https://vskzokoctznvibxelotg.supabase.co/rest/v1/rpc/match_diary_entries',
+      callType: ApiCallType.POST,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZza3pva29jdHpudmlieGVsb3RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyMjAzNDksImV4cCI6MjA2NDc5NjM0OX0.BMUqspi1ZGXSB2k3ko1SgWg69BkwgL6iLSCNcAtu5Ik',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZza3pva29jdHpudmlieGVsb3RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyMjAzNDksImV4cCI6MjA2NDc5NjM0OX0.BMUqspi1ZGXSB2k3ko1SgWg69BkwgL6iLSCNcAtu5Ik',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -109,4 +193,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

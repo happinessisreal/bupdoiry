@@ -302,6 +302,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
+                                          color: Color(0xFF061606),
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -401,6 +402,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                       .headlineSmall
                                       .fontStyle,
                                 ),
+                                color: Color(0xFFBCDCAF),
                                 fontSize: 20.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
@@ -520,6 +522,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: Color(0xA804240F),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -598,6 +601,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: Color(0xFF232E1F),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -676,6 +680,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: Color(0xFF092A13),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -754,6 +759,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: Color(0xFF041505),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -832,6 +838,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: Color(0xFF0D1F11),
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -905,7 +912,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFF618161),
                             width: 0.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
@@ -937,7 +944,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                             16.0, 16.0, 16.0, 16.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.inter(
+                            font: GoogleFonts.roboto(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontWeight,
@@ -945,7 +952,8 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 16.0,
+                            color: Color(0xFFD1DBC5),
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium

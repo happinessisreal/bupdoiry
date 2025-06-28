@@ -101,11 +101,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => P1ToPWidget(),
             ),
             FFRoute(
-              name: FrontWidget.routeName,
-              path: FrontWidget.routePath,
-              builder: (context, params) => FrontWidget(),
-            ),
-            FFRoute(
               name: EntryPageWidget.routeName,
               path: EntryPageWidget.routePath,
               builder: (context, params) => EntryPageWidget(
@@ -141,11 +136,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => List10OrderHistoryWidget(),
             ),
             FFRoute(
-              name: ChatBotWidget.routeName,
-              path: ChatBotWidget.routePath,
-              builder: (context, params) => ChatBotWidget(),
-            ),
-            FFRoute(
               name: ChatAiScreenWidget.routeName,
               path: ChatAiScreenWidget.routePath,
               builder: (context, params) => ChatAiScreenWidget(),
@@ -156,9 +146,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ListofoptionsWidget(),
             ),
             FFRoute(
-              name: ChattingPageWidget.routeName,
-              path: ChattingPageWidget.routePath,
-              builder: (context, params) => ChattingPageWidget(),
+              name: ChattingpageWidget.routeName,
+              path: ChattingpageWidget.routePath,
+              builder: (context, params) => ChattingpageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

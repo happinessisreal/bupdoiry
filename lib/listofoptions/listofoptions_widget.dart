@@ -46,18 +46,19 @@ class _ListofoptionsWidgetState extends State<ListofoptionsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFF1F4F8),
+        backgroundColor: Color(0xFFE7EADB),
         appBar: AppBar(
-          backgroundColor: Color(0xFFF1F4F8),
+          backgroundColor: Color(0xFF1C3D1C),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
+            fillColor: Color(0x49E8F1C4),
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Color(0xFF14181B),
+              color: Color(0xFFB4C3AA),
               size: 30.0,
             ),
             onPressed: () {
@@ -67,12 +68,12 @@ class _ListofoptionsWidgetState extends State<ListofoptionsWidget> {
           title: Text(
             'Features',
             style: FlutterFlowTheme.of(context).bodyLarge.override(
-                  font: GoogleFonts.plusJakartaSans(
+                  font: GoogleFonts.montserrat(
                     fontWeight: FontWeight.normal,
                     fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                   ),
-                  color: Color(0xFF14181B),
-                  fontSize: 16.0,
+                  color: Color(0xFFC8E5C3),
+                  fontSize: 20.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.normal,
                   fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
@@ -102,7 +103,7 @@ class _ListofoptionsWidgetState extends State<ListofoptionsWidget> {
                         width: double.infinity,
                         height: 60.0,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color(0x45C5D2A4),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.transparent,
@@ -173,13 +174,13 @@ class _ListofoptionsWidgetState extends State<ListofoptionsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(ChatAiScreenWidget.routeName);
+                          context.pushNamed(ChattingpageWidget.routeName);
                         },
                         child: Container(
                           width: double.infinity,
                           height: 60.0,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0x45C5D2A4),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.transparent,
@@ -239,7 +240,7 @@ class _ListofoptionsWidgetState extends State<ListofoptionsWidget> {
                         width: double.infinity,
                         height: 60.0,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color(0x45C5D2A4),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.transparent,

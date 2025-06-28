@@ -7,3 +7,4 @@ export 'table.dart';
 
 export 'tables/task.dart';
 export 'tables/userprofile.dart';
+export 'tables/conversation.dart';

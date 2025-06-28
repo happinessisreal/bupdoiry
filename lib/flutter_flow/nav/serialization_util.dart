@@ -209,6 +209,8 @@ dynamic deserializeParam<T>(
             return TaskRow(data);
           case UserprofileRow:
             return UserprofileRow(data);
+          case ConversationRow:
+            return ConversationRow(data);
           default:
             return null;
         }
