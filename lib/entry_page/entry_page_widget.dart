@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -142,13 +143,23 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                   size: 24.0,
                 ),
                 onPressed: () async {
+                  _model.embedoutput = await GetGeminiEmbeddingCall.call(
+                    userInput: widget.actualentry,
+                  );
+
                   await UserprofileTable().insert({
                     'Title': _model.textController2.text,
                     'Content': _model.textController3.text,
                     'Date': _model.textController1.text,
+                    'embedding': getJsonField(
+                      (_model.embedoutput?.jsonBody ?? ''),
+                      r'''$.embedding.values''',
+                    ).toString(),
                   });
 
                   context.pushNamed(List10OrderHistoryWidget.routeName);
+
+                  safeSetState(() {});
                 },
               ),
             ),

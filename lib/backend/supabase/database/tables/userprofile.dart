@@ -37,4 +37,7 @@ class UserprofileRow extends SupabaseDataRow {
 
   String? get date => getField<String>('Date');
   set date(String? value) => setField<String>('Date', value);
+
+  String? get embedding => getField<String>('embedding');
+  set embedding(String? value) => setField<String>('embedding', value);
 }
