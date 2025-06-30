@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/gemini/gemini.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -263,7 +264,7 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0xFF1F2819),
+                                    color: Colors.black,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -296,33 +297,33 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0xFF131913),
-                                  width: 1.0,
+                                  width: 5.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
+                                  color: Colors.black,
+                                  width: 5.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
+                                  width: 5.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
+                                  width: 5.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               filled: true,
-                              fillColor: Color(0xFFE7E8DB),
+                              fillColor: Colors.white,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -335,7 +336,7 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  fontSize: 16.0,
+                                  fontSize: 25.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -361,9 +362,26 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                           size: 24.0,
                         ),
                         onPressed: () async {
+                          _model.outputembed =
+                              await GetGeminiEmbeddingCall.call(
+                            userInput: _model.textController.text,
+                          );
+
+                          _model.matchingApiResponse =
+                              await MatchDiaryEntriesCall.call(
+                            queryEmbeddingList: getJsonField(
+                              (_model.outputembed?.jsonBody ?? ''),
+                              r'''$.embedding.values''',
+                              true,
+                            ),
+                          );
+
                           await geminiGenerateText(
                             context,
-                            _model.textController.text,
+                            'Based on this past entry: \"${getJsonField(
+                              (_model.matchingApiResponse?.jsonBody ?? ''),
+                              r'''$[:].content''',
+                            ).toString()}\"Now please respond to this : ${_model.textController.text}',
                           ).then((generatedText) {
                             safeSetState(
                                 () => _model.aioutputofgemini = generatedText);

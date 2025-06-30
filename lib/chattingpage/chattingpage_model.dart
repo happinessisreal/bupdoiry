@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'chattingpage_widget.dart' show ChattingpageWidget;
 import 'package:flutter/material.dart';
@@ -9,6 +10,10 @@ class ChattingpageModel extends FlutterFlowModel<ChattingpageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (getGeminiEmbedding)] action in IconButton widget.
+  ApiCallResponse? outputembed;
+  // Stores action output result for [Backend Call - API (matchDiaryEntries)] action in IconButton widget.
+  ApiCallResponse? matchingApiResponse;
   // Stores action output result for [Gemini - Generate Text] action in IconButton widget.
   String? aioutputofgemini;
 

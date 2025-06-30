@@ -123,9 +123,9 @@ class MatchDiaryEntriesCall {
 
     final ffApiRequestBody = '''
 {
-  "query_embedding": [${queryEmbedding}],
-  "match_threshold": 0.7,
-  "match_count": 3
+  "query_embedding": ${queryEmbedding},
+  "match_threshold":0.3,
+  "match_count": 1
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'matchDiaryEntries',
@@ -149,6 +149,12 @@ class MatchDiaryEntriesCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? matchedContent(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[:].content''',
+      ));
 }
 
 class ApiPagingParams {
