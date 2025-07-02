@@ -114,9 +114,13 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                                           padding: EdgeInsets.all(14.0),
                                           child: Container(
                                             width: 100.0,
-                                            height: 100.0,
+                                            height: 173.2,
+                                            constraints: BoxConstraints(
+                                              maxHeight: double.infinity,
+                                            ),
                                             decoration: BoxDecoration(
                                               color: Color(0xFFF1F6EB),
+                                              shape: BoxShape.rectangle,
                                               border: Border.all(
                                                 color: Color(0xFF2A4332),
                                               ),
@@ -285,7 +289,7 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0xFF243C2D),
+                                    color: Color(0xFFB9D4C2),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -326,23 +330,24 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
                               fillColor: Colors.white,
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyMedium
+                                .bodySmall
                                 .override(
                                   font: GoogleFonts.inter(
                                     fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
+                                        .bodySmall
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
+                                        .bodySmall
                                         .fontStyle,
                                   ),
-                                  fontSize: 25.0,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                      .bodySmall
                                       .fontWeight,
                                   fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                      .bodySmall
                                       .fontStyle,
                                 ),
                             cursorColor:
@@ -369,19 +374,17 @@ class _ChattingpageWidgetState extends State<ChattingpageWidget> {
 
                           _model.matchingApiResponse =
                               await MatchDiaryEntriesCall.call(
-                            queryEmbeddingList: getJsonField(
+                            queryEmbeddingList:
+                                GetGeminiEmbeddingCall.embeddingValues(
                               (_model.outputembed?.jsonBody ?? ''),
-                              r'''$.embedding.values''',
-                              true,
                             ),
                           );
 
                           await geminiGenerateText(
                             context,
-                            'Based on this past entry: \"${getJsonField(
+                            'Based on this past entry: \"${MatchDiaryEntriesCall.matchedContent(
                               (_model.matchingApiResponse?.jsonBody ?? ''),
-                              r'''$[:].content''',
-                            ).toString()}\"Now please respond to this : ${_model.textController.text}',
+                            )}\"Now please respond to this within 100 words: ${_model.textController.text}',
                           ).then((generatedText) {
                             safeSetState(
                                 () => _model.aioutputofgemini = generatedText);

@@ -238,7 +238,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget>
                                                     .labelMedium
                                                     .fontStyle,
                                           ),
-                                      hintText: 'TextField',
+                                      hintText: 'Date',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(

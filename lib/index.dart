@@ -9,3 +9,4 @@ export '/chat/chat_ai_screen/chat_ai_screen_widget.dart'
     show ChatAiScreenWidget;
 export '/listofoptions/listofoptions_widget.dart' show ListofoptionsWidget;
 export '/chattingpage/chattingpage_widget.dart' show ChattingpageWidget;
+export '/task_page/task_page_widget.dart' show TaskPageWidget;

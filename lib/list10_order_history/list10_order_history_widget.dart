@@ -78,7 +78,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
               onPressed: () {
                 print('FloatingActionButton pressed ...');
               },
-              backgroundColor: FlutterFlowTheme.of(context).primary,
+              backgroundColor: Color(0xFF12150C),
               elevation: 8.0,
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -98,7 +98,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                 },
                 child: Icon(
                   Icons.add_rounded,
-                  color: FlutterFlowTheme.of(context).info,
+                  color: Color(0xFFE3F9D4),
                   size: 24.0,
                 ),
               ),
@@ -209,8 +209,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                               width: double.infinity,
                               height: 100.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: Color(0xFFD9EEDB),
                               ),
                               child: Align(
                                 alignment: AlignmentDirectional(-1.0, 0.0),
@@ -233,6 +232,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
+                                        color: Color(0xFF093413),
                                         fontSize: 38.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)

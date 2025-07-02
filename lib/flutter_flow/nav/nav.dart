@@ -149,6 +149,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: ChattingpageWidget.routeName,
               path: ChattingpageWidget.routePath,
               builder: (context, params) => ChattingpageWidget(),
+            ),
+            FFRoute(
+              name: TaskPageWidget.routeName,
+              path: TaskPageWidget.routePath,
+              builder: (context, params) => TaskPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

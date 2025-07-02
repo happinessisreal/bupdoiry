@@ -157,6 +157,35 @@ class MatchDiaryEntriesCall {
       ));
 }
 
+class GenerateTasksCall {
+  static Future<ApiCallResponse> call() async {
+    final ffApiRequestBody = '''
+{
+  "userId": "7358ba1d-15fb-4b4c-abcd-631219e899d7"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'generateTasks',
+      apiUrl:
+          'https://vskzokoctznvibxelotg.supabase.co/functions/v1/generate-tasks',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZza3pva29jdHpudmlieGVsb3RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyMjAzNDksImV4cCI6MjA2NDc5NjM0OX0.BMUqspi1ZGXSB2k3ko1SgWg69BkwgL6iLSCNcAtu5Ik',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
